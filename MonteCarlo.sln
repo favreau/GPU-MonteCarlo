@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MonteCarloTester", "MonteCarloTester\MonteCarloTester.vcproj", "{66AF69B0-A529-47D8-B506-A03BCC37EBA1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{359844B8-B37C-4C53-9D9A-59D81B2377AA} = {359844B8-B37C-4C53-9D9A-59D81B2377AA}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MonteCarlo", "MonteCarlo\MonteCarlo.vcproj", "{359844B8-B37C-4C53-9D9A-59D81B2377AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		DebugCUDA|Win32 = DebugCUDA|Win32
+		DebugOpenCL|Win32 = DebugOpenCL|Win32
+		DebugTBB|Win32 = DebugTBB|Win32
+		Release|Win32 = Release|Win32
+		ReleaseCUDA|Win32 = ReleaseCUDA|Win32
+		ReleaseOpenCL|Win32 = ReleaseOpenCL|Win32
+		ReleaseTBB|Win32 = ReleaseTBB|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66AF69B0-A529-47D8-B506-A03BCC37EBA1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{66AF69B0-A529-47D8-B506-A03BCC37EBA1}.Debug|Win32.Build.0 = Debug|Win32
+		{66AF69B0-A529-47D8-B506-A03BCC37EBA1}.DebugCUDA|Win32.ActiveCfg = DebugCUDA|Win32
+		{66AF69B0-A529-47D8-B506-A03BCC37EBA1}.DebugCUDA|Win32.Build.0 = DebugCUDA|Win32
+		{66AF69B0-A529-47D8-B506-A03BCC37EBA1}.DebugOpenCL|Win32.ActiveCfg = DebugOpenCL|Win32
+		{66AF69B0-A529-47D8-B506-A03BCC37EBA1}.DebugOpenCL|Win32.Build.0 = DebugOpenCL|Win32
+		{66AF69B0-A529-47D8-B506-A03BCC37EBA1}.DebugTBB|Win32.ActiveCfg = DebugTBB|Win32
+		{66AF69B0-A529-47D8-B506-A03BCC37EBA1}.DebugTBB|Win32.Build.0 = DebugTBB|Win32
+		{66AF69B0-A529-47D8-B506-A03BCC37EBA1}.Release|Win32.ActiveCfg = Release|Win32
+		{66AF69B0-A529-47D8-B506-A03BCC37EBA1}.Release|Win32.Build.0 = Release|Win32
+		{66AF69B0-A529-47D8-B506-A03BCC37EBA1}.ReleaseCUDA|Win32.ActiveCfg = ReleaseCUDA|Win32
+		{66AF69B0-A529-47D8-B506-A03BCC37EBA1}.ReleaseCUDA|Win32.Build.0 = ReleaseCUDA|Win32
+		{66AF69B0-A529-47D8-B506-A03BCC37EBA1}.ReleaseOpenCL|Win32.ActiveCfg = ReleaseOpenCL|Win32
+		{66AF69B0-A529-47D8-B506-A03BCC37EBA1}.ReleaseOpenCL|Win32.Build.0 = ReleaseOpenCL|Win32
+		{66AF69B0-A529-47D8-B506-A03BCC37EBA1}.ReleaseTBB|Win32.ActiveCfg = ReleaseTBB|Win32
+		{66AF69B0-A529-47D8-B506-A03BCC37EBA1}.ReleaseTBB|Win32.Build.0 = ReleaseTBB|Win32
+		{359844B8-B37C-4C53-9D9A-59D81B2377AA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{359844B8-B37C-4C53-9D9A-59D81B2377AA}.Debug|Win32.Build.0 = Debug|Win32
+		{359844B8-B37C-4C53-9D9A-59D81B2377AA}.DebugCUDA|Win32.ActiveCfg = DebugCUDA|Win32
+		{359844B8-B37C-4C53-9D9A-59D81B2377AA}.DebugCUDA|Win32.Build.0 = DebugCUDA|Win32
+		{359844B8-B37C-4C53-9D9A-59D81B2377AA}.DebugOpenCL|Win32.ActiveCfg = DebugOpenCL|Win32
+		{359844B8-B37C-4C53-9D9A-59D81B2377AA}.DebugOpenCL|Win32.Build.0 = DebugOpenCL|Win32
+		{359844B8-B37C-4C53-9D9A-59D81B2377AA}.DebugTBB|Win32.ActiveCfg = DebugTBB|Win32
+		{359844B8-B37C-4C53-9D9A-59D81B2377AA}.DebugTBB|Win32.Build.0 = DebugTBB|Win32
+		{359844B8-B37C-4C53-9D9A-59D81B2377AA}.Release|Win32.ActiveCfg = Release|Win32
+		{359844B8-B37C-4C53-9D9A-59D81B2377AA}.Release|Win32.Build.0 = Release|Win32
+		{359844B8-B37C-4C53-9D9A-59D81B2377AA}.ReleaseCUDA|Win32.ActiveCfg = ReleaseCUDA|Win32
+		{359844B8-B37C-4C53-9D9A-59D81B2377AA}.ReleaseCUDA|Win32.Build.0 = ReleaseCUDA|Win32
+		{359844B8-B37C-4C53-9D9A-59D81B2377AA}.ReleaseOpenCL|Win32.ActiveCfg = ReleaseOpenCL|Win32
+		{359844B8-B37C-4C53-9D9A-59D81B2377AA}.ReleaseOpenCL|Win32.Build.0 = ReleaseOpenCL|Win32
+		{359844B8-B37C-4C53-9D9A-59D81B2377AA}.ReleaseTBB|Win32.ActiveCfg = ReleaseTBB|Win32
+		{359844B8-B37C-4C53-9D9A-59D81B2377AA}.ReleaseTBB|Win32.Build.0 = ReleaseTBB|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

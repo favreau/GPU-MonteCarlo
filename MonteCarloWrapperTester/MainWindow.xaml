@@ -1,0 +1,81 @@
+﻿<Window x:Class="MonteCarloWrapperTester.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Monte Carlo .NET Demo" Height="480" Width="640" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduler" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" ResizeMode="NoResize" Icon="/MonteCarloWrapperTester;component/TryVisualStudioProfessional.ico" WindowStyle="SingleBorderWindow">
+    <Grid Height="421">
+        <Rectangle Height="90" HorizontalAlignment="Left" Name="rectangle1" VerticalAlignment="Top" Width="616" StrokeThickness="2" RadiusX="5" RadiusY="5" Stroke="#FF5379AE" Margin="2,2,0,0">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0" />
+                    <GradientStop Color="#FFE2D7BF" Offset="1" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <dxc:ChartControl HorizontalAlignment="Left" Margin="12,106,0,0" Name="chartControlFrequencies" VerticalAlignment="Top" DataContext="{Binding}" Width="289" Height="305">
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram2D>
+                    <dxc:XYDiagram2D.AxisY>
+                        <dxc:AxisY2D Visible="True" />
+                    </dxc:XYDiagram2D.AxisY>
+                    <dxc:XYDiagram2D.AxisX>
+                        <dxc:AxisX2D Visible="False" />
+                    </dxc:XYDiagram2D.AxisX>
+                    <dxc:XYDiagram2D.Series>
+                        <dxc:LineSeries2D Name="frequenciesSeries" MarkerVisible="False">
+                            <dxc:LineSeries2D.LineStyle>
+                                <dxc:LineStyle DashCap="Round" />
+                            </dxc:LineSeries2D.LineStyle>
+                            <dxc:LineSeries2D.Label>
+                                <dxc:SeriesLabel Visible="false"/>
+                            </dxc:LineSeries2D.Label>
+                        </dxc:LineSeries2D >
+                    </dxc:XYDiagram2D.Series>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl.Diagram>
+        </dxc:ChartControl>
+        <dxc:ChartControl HorizontalAlignment="Left" Margin="307,106,0,0" Name="chartControlPerformance" VerticalAlignment="Top" Width="299" Height="305">
+            <dxc:ChartControl.Diagram>
+                <dxc:XYDiagram2D>
+                    <dxc:XYDiagram2D.AxisY>
+                        <dxc:AxisY2D Visible="True" />
+                    </dxc:XYDiagram2D.AxisY>
+                    <dxc:XYDiagram2D.AxisX>
+                        <dxc:AxisX2D Visible="False" />
+                    </dxc:XYDiagram2D.AxisX>
+                    <dxc:XYDiagram2D.Series>
+                        <dxc:LineSeries2D Name="performancesSeries" MarkerVisible="False">
+                            <dxc:LineSeries2D.LineStyle>
+                                <dxc:LineStyle DashCap="Round" />
+                            </dxc:LineSeries2D.LineStyle>
+                            <dxc:LineSeries2D.Label>
+                                <dxc:SeriesLabel Visible="false" />
+                            </dxc:LineSeries2D.Label>
+                        </dxc:LineSeries2D>
+                    </dxc:XYDiagram2D.Series>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl.Diagram>
+        </dxc:ChartControl>
+        <Slider Name="sdPerformanceAnnuelle" Height="23" HorizontalAlignment="Left" Margin="144,12,0,0" VerticalAlignment="Top" Width="93" Minimum="0" Maximum="100" Value="10" TickFrequency="1" ValueChanged="RefreshData"/>
+        <Slider Name="sdVolatilite" Height="23" HorizontalAlignment="Left" Margin="144,37,0,0" VerticalAlignment="Top" Width="93" Minimum="0" Maximum="100" Value="10" TickFrequency="1" ValueChanged="RefreshData"/>
+        <Slider Name="sdSeries" Height="23" HorizontalAlignment="Left" Margin="144,68,0,0" VerticalAlignment="Top" Width="93" Maximum="50" Value="20" Minimum="10" TickFrequency="5" ValueChanged="RefreshData"/>
+        <Slider Name="sdIterations" Height="23" HorizontalAlignment="Left" Margin="458,12,0,0" VerticalAlignment="Top" Width="100" ValueChanged="RefreshData" Maximum="1500" Minimum="200" Interval="100" Value="500" />
+        <Slider Name="sdFrequencies" Height="23" HorizontalAlignment="Left" Margin="458,37,0,0" VerticalAlignment="Top" Width="100" ValueChanged="RefreshData" Maximum="50" Minimum="10" Interval="5" Value="30" />
+        <Label Content="Itérations:" Height="28" HorizontalAlignment="Left" Margin="388,12,0,0" Name="label5" VerticalAlignment="Top" />
+        <Label Content="Granularité:" Height="28" HorizontalAlignment="Left" Margin="388,37,163,0" Name="label6" VerticalAlignment="Top" />
+        <Label Content="Performance annuelle:" Height="28" Margin="12,12,490,0" Name="label1" VerticalAlignment="Top" />
+        <Label Content="Volatilité:" Height="28" HorizontalAlignment="Left" Margin="12,37,0,0" Name="label2" VerticalAlignment="Top" />
+        <Label Content="Nombre de séries:" Height="28" HorizontalAlignment="Left" Margin="12,63,0,0" Name="label3" VerticalAlignment="Top" />
+        <Label Content="0.1" Height="28" HorizontalAlignment="Left" Margin="243,12,0,0" Name="lblPerformanceAnnuelle" VerticalAlignment="Top" />
+        <Label Content="0.1" Height="28" HorizontalAlignment="Left" Margin="243,37,0,0" Name="lblVolatilite" VerticalAlignment="Top" />
+        <Label Content="10000" Height="28" HorizontalAlignment="Left" Margin="243,63,0,0" Name="lblSeries" VerticalAlignment="Top" />
+        <Label Content="200" Height="28" HorizontalAlignment="Left" Margin="564,12,0,0" Name="lblIterations" VerticalAlignment="Top" />
+        <Label Content="20" Height="28" HorizontalAlignment="Left" Margin="564,37,0,0" Name="lblGranularite" VerticalAlignment="Top" />
+        <Label Content="Execution time:" Height="28" HorizontalAlignment="Left" Margin="388,63,0,0" Name="lblExecutionTime" VerticalAlignment="Top" />
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White" Offset="0" />
+                <GradientStop Color="#FFE6DCC7" Offset="1" />
+            </LinearGradientBrush>
+        </Grid.Background>
+    </Grid>
+</Window>

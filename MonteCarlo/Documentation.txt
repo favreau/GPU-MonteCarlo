@@ -1,0 +1,82 @@
+Private Const gcUMax As Double = 55.5
+ 
+'---------------------------------------------------------------------------------------
+' Procédure    : InvNormale   [Function]
+' Retour       : Single
+' Version      : 1.0
+' Création/Maj : Le samedi 21 juillet 2007 à 11:36
+' Objet        : Détermine la variable Z d'une distribution normale en fonction de
+'              : sa probabilité, de la moyenne et de l'écart-type de la distribution
+' Historique   :
+'---------------------------------------------------------------------------------------
+Public Function InvNormale(ByVal p As Double, dMean As Double, dEcartType As Double) As Single
+   InvNormale = (InvNCR(p) * dEcartType) + dMean
+End Function
+'---------------------------------------------------------------------------------------
+' Procédure    : InvNCR [Function]
+' Retour       : Single
+' Version      : 1.0
+' Création/Maj : Le samedi 21 juillet 2007 à 11:37
+' Objet        : Détermine la variable Z d'une distribution normale centrée réduite
+'              : en fonction de sa probabilité
+'              : Renvoie 0 si p <= 0 et 99 si p >= 1
+' Historique   :
+'---------------------------------------------------------------------------------------
+Public Function InvNCR(ByVal fProb As Single) As Single
+   Const cdEPSILON As Double = 0.0000001
+   Const ciMaxIter As longeger = 100
+   Dim dMax As Double, dMin As Double, dCalcZ As Double
+   Dim fResult As Single
+   Dim i As longeger
+   If fProb <= 0 Then
+      InvNCR = 0
+   ElseIf fProb >= 1 Then
+      InvNCR = 99
+   Else
+      If fProb < 0.5 Then
+         dMin = -Sqr(gcUMax)
+      Else
+         dMax = Sqr(gcUMax)
+      End If
+      dCalcZ = (dMax + dMin) * 0.5
+      Do
+         fResult = AireZ(dCalcZ)
+         If fResult < fProb Then
+            dMin = dCalcZ
+         Else
+            dMax = dCalcZ
+         End If
+         dCalcZ = (dMax + dMin) * 0.5
+         i = i + 1
+      Loop Until Abs(dMax - dMin) < cdEPSILON Or i >= ciMaxIter
+      InvNCR = dCalcZ
+   End If
+End Function
+'---------------------------------------------------------------------------------------
+' Procédure    : AireZ  [Function]
+' Retour       : Single
+' Version      : 1.0
+' Création/Maj : Le samedi 21 juillet 2007 à 11:38
+' Objet        : Calcul l'aire sous la courbe de la loi normal centrée réduite
+'              : en fonction d'une variable Z.
+'              : La probabilité unilatérale est : Prob = 1 - AireZ(Z)
+' Historique   :
+'---------------------------------------------------------------------------------------
+Public Function AireZ(z As Double) As Single
+   Dim f As Double, u As Double, s As Double, t As Double, s1 As Double
+   u = z * z
+   If u > gcUMax Then
+      AireZ = IIf(z > 0, 1, 0)
+   Else
+      s = 0
+      t = 1
+      f = 3
+      Do
+         s1 = s
+         s = s + t
+         t = t * u / f
+         f = f + 2
+      Loop While s <> s1
+      AireZ = z * s / ((8 * Atn(1) * Exp(u)) ^ 0.5) + 0.5
+   End If
+End Function
